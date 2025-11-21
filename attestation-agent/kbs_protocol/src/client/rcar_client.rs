@@ -310,7 +310,7 @@ impl KbsClient<Box<dyn EvidenceProvider>> {
 impl KbsClientCapabilities for KbsClient<Box<dyn EvidenceProvider>> {
     async fn get_resource(&mut self, resource_uri: ResourceUri) -> Result<Vec<u8>> {
         let mut remote_url = format!(
-            "{}/{KBS_PREFIX}/resource/{}/{}/{}",
+            "{}/{KBS_PREFIX}/pki_vault/{}/{}/{}",
             self.kbs_host_url, resource_uri.repository, resource_uri.r#type, resource_uri.tag
         );
         if let Some(ref q) = resource_uri.query {
